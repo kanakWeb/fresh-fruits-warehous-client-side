@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="">
+    <div className="margin-top">
       <footer
         style={{ background: "#191e32" }}
         className="page-footer mt mb-0  text-light   font-small blue pt-4"

@@ -18,7 +18,7 @@ const Blogs = () => {
               aria-expanded="true"
               aria-controls="panelsStayOpen-collapseOne"
             >
-              Difference between Javascript and Node.JS -
+            <h4>  Difference between Javascript and Node.JS -</h4>
             </button>
           </h2>
           <div
@@ -90,7 +90,7 @@ const Blogs = () => {
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseTwo"
             >
-             When should you use nodejs and when should you use mongodb?
+             <h4>When should you use nodejs and when should you use mongodb?</h4>
             </button>
           </h2>
           <div
@@ -128,7 +128,7 @@ const Blogs = () => {
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseThree"
             >
-             Differences between Sql and NoSql databases -
+            <h4> Differences between Sql and NoSql databases -</h4>
             </button>
           </h2>
           <div

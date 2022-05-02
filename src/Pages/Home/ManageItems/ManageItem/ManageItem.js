@@ -19,9 +19,8 @@ const ManageItem = ({item}) => {
             </Card.Text>
           </Card.Body>
           
-            <div className='d-flex '><button className="btn w-50 text-light  btn-warning m-1 fw-bold fs-5">Delete item</button>
-            <button className="btn  w-50 text-light m-1  btn-warning fw-bold fs-5">Add item</button></div>
-          
+            <button className="btn  text-light  btn-warning m-1 fw-bold fs-5">Delete item</button>
+  
         </Card>
         
         

@@ -45,7 +45,6 @@ const Login = () => {
         <div className="container my-5">
           <div className="row justify-content-center">
             <div className="col-12 col-md-8 col-lg-6 pb-5">
-              {/* --Form with header-- */}
 
               <form className="sizing-card" onSubmit={handleLogin}>
                 <div className="card login-card rounded-3">
@@ -56,7 +55,6 @@ const Login = () => {
                     </div>
                   </div>
                   <div className="card-body p-3">
-                    {/*  --Body--*/}
                     <div className="form-group">
                       <div className="input-group my-4">
                         <div className="input-group-prepend">
@@ -104,7 +102,6 @@ const Login = () => {
                   <SocialLogin></SocialLogin>
                 </div>
               </form>
-              {/* --Form with header-- */}
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import Footer from "./Pages/Share/Footer/Footer";
 import ManageItems from "./Pages/Home/ManageItems/ManageItems/ManageItems";
 import DetailItems from "./Pages/DetailItems/DetailItems";
+import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -19,7 +20,11 @@ function App() {
         <Route path="/items" element={<Items></Items>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-        <Route path="/item/:itemId" element={<DetailItems></DetailItems>}></Route>
+        <Route path="/item/:itemId" element={
+          <RequireAuth>
+            <DetailItems></DetailItems>
+          </RequireAuth>
+        }></Route>
         <Route path="/ManageItem" element={<ManageItems></ManageItems>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
