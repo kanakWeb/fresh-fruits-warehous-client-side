@@ -1,9 +1,14 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import '../Items/Items.css'
 
 const Item = ({item}) => {
-    const{picture,name,price,description,supplier,quantity}=item
+    const{id,picture,name,price,description,supplier,quantity}=item
+    const navigate=useNavigate()
+    const handleDetails=(id)=>{
+      navigate(`/item/${id}`)
+    }
     return (
        <div className='col-sm-12 col-md-6 col-lg-4  text-light  rounded rounded-lg 
         '>
@@ -20,7 +25,7 @@ const Item = ({item}) => {
             </Card.Text>
           </Card.Body>
           
-            <small className="btn text-light btn-warning fw-bold fs-5">Update item</small>
+            <button onClick={()=>handleDetails(id)} className="btn text-light btn-warning fw-bold fs-5">Update item</button>
           
         </Card>
         
