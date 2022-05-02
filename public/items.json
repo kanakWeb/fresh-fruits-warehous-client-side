@@ -1,0 +1,78 @@
+[
+    {
+      "id": "623de6622232f7def522b687",
+      "price": 45,
+      "picture": "https://www.lp-catering.nl/wp-content/uploads/appel.jpg",
+      "name": "Apple",
+      "description":"An apple is a round fruit with red or green skin and a whitish inside available.",
+      "supplier":"Rahim",
+      "quantity":"30"
+    },
+    {
+      "id": "623de66270e351e38918b2ce",
+      "price": 46,
+      "picture": "https://www.kindpng.com/picc/m/376-3767041_orange-hd-png-transparent-orange-hd-single-fruits.png",
+      "name": "Orange",
+      "description":" Its rind and flesh are generally orange, except the varieties of red pulp.",
+      "supplier":"Mahim",
+      "quantity":"20"
+    },
+    
+    {
+      "id": "623de662655b6426100d7bb3",
+      "price": 48,
+      "picture": "https://www.nicepng.com/png/detail/380-3807920_pineapple-png.png",
+      "name": "pineapple",
+      "description":"Its is excellent, whether eaten as a snack, in a sweet dessert, in savory dishes like fried rice.",
+      "supplier":"Rahim",
+      "quantity":"50"
+    },
+    
+    {
+      "id": "623de66211ea520a1bd78037",
+      "price": 50,
+      "picture": "https://www.collinsdictionary.com/images/full/grape_229112122.jpg",
+      "name": "grapes",
+      "description":"It has a white or purple flesh of sweet taste, eaten raw or in juice and fresh fruits.",
+      "supplier":"Rahim",
+      "quantity":"30"
+    },
+    {
+      "id": "623de662f44fd132aeb062a6",
+      "price": 51,
+      "picture": "https://d3mvlb3hz2g78.cloudfront.net/wp-content/uploads/2011/07/thumb_720_450_fresh-red-strawberry_shutterstock_77084539.jpg",
+      "name": "Strawberry",
+      "description":"Strawberries are soft, sweet, bright red berries. They're also delicious. Strawberries have tiny.",
+      "supplier":"Kobir",
+      "quantity":"60"
+    },
+    {
+      "id": "623de885c32598d1332a6ae5",
+      "price": 53,
+      "picture": "https://blog.pureindianfoods.com/wp-content/uploads/2020/09/alphonso-mango.jpg",
+      "name": "Mango",
+      "description":" It is a very juicy, pulpy and luscious fruit . Ripe mangoes are juicy, fleshy, and delicious.",
+      "supplier":"Rahim",
+      "quantity":"40"
+    },
+    {
+      "id": "623de662aeedec6230e6e49f",
+      "price": 52,
+      "picture": "https://cdn.britannica.com/18/176518-050-5AB1E61D/lychee-fruits-Southeast-Asia.jpg",
+      "name": "Lychee",
+      "description":"Lychees are round or oblong in shape and are 1 ½ to 2 inches in diameter reasonable price items.",
+      "supplier":"Rahim",
+      "quantity":"30"
+    },
+    {
+      "id": "623de662dafa46f56e258a04",
+      "price": 49,
+      "picture": "https://i5.walmartimages.ca/images/Enlarge/538/392/6000198538392.jpg",
+      "name": "guava",
+      "description":"An guava is a round fruit guava  white, yellow, or pink flesh. The musky, at times pungent,  good.",
+      "supplier":"Rahim",
+      "quantity":"20"
+    }
+    
+    
+  ]

@@ -1,0 +1,13 @@
+body{
+    background-image: url(../../../../images/brooke-lark-08bOYnH_r_E-unsplash.jpg),
+    linear-gradient(#13030511, #460d0d09);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+.margin-top{
+    margin-top:100px
+}
