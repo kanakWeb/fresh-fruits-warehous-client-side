@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../Items/Items.css'
 
 const Item = ({item}) => {
-    const{id,picture,name,price,description,supplier,quantity}=item
+    const{ _id,picture,name,price,description,supplier,quantity}=item
     const navigate=useNavigate()
     const handleDetails=(id)=>{
       navigate(`/item/${id}`)
@@ -25,7 +25,7 @@ const Item = ({item}) => {
             </Card.Text>
           </Card.Body>
           
-            <button onClick={()=>handleDetails(id)} className="btn text-light btn-warning fw-bold fs-5">Update item</button>
+            <button onClick={()=>handleDetails(_id)} className="btn text-light btn-warning fw-bold fs-5">Update item</button>
           
         </Card>
         

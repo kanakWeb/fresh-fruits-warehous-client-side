@@ -11,7 +11,7 @@ const[items]=useItems([])
            <div className="row m-2 g-5">
                {
                    items.slice(0,6).map(item=><Item
-                   key={item.id}
+                   key={item._id}
                    item={item}
                    ></Item>)
                }
