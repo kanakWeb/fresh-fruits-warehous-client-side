@@ -12,8 +12,8 @@ const AboutHealth = () => {
         borderRadius: "10px",
       }}
     >
-      <h2 className="text-center py-3 fs-2 text-info fw-bold">
-        About For Health{" "}
+      <h2 className="text-center py-2 fs-2 text-info fw-bold">
+        About For Health
       </h2>
       <div className="w-100 row mt-5">
         <div className="col-lg-5 col-sm-12 col-md-12 mt-4">
@@ -25,9 +25,10 @@ const AboutHealth = () => {
           />
         </div>
 
-        <div className=" col-lg-7 col-sm-12 col-md-12">
-          <h2 className="text-info">About:</h2>
-          <p className="fs-4 ">Fruits are an excellent source of essential vitamins and minerals, and they are high in fiber. Fruits also provide a wide range of health-boosting antioxidants, including flavonoids.
+        <div className=" col-lg-7 text-wrap col-sm-12 col-md-12">
+          <h2 className="text-info mt-3 ">About:</h2>
+          <p className="fs-4 text-dark ext-wrap "> <q>
+          Fruits are an excellent source of essential vitamins and minerals, and they are high in fiber. Fruits also provide a wide range of health-boosting antioxidants, including flavonoids.
             If you like to feed your family members with natural or
             organic foods, delight in Walmart's inventory of organic
             thrills, which are made without man-made active
@@ -36,6 +37,7 @@ const AboutHealth = () => {
             way farmers expand and refine their agricultural products,
             like different fruits, - apple, Orange, and pineapple etc
             items.
+          </q>
           </p>
         </div>
       </div>
