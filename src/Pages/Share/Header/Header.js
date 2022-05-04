@@ -20,14 +20,14 @@ const Header = () => {
           <Navbar.Brand  href="#home"><h2 className="text-warning fw-bold">Fresh Fruits</h2></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto mb-0">
-              <Nav.Link as={Link} className="fw-bold  m-1  fs-6 y text-warning" to="/">Home</Nav.Link>
-              <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="InventoryItems">InventoryItems</Nav.Link>
-              <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="/item/:itemId">InventoryManage</Nav.Link>
-              <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="/blogs">Blogs</Nav.Link>
+            <Nav className="ms-auto nav-bar mb-0">
+              <Nav.Link as={Link} className="fw-bold  m-1 nav-underline fs-6 y text-warning" to="/">Home</Nav.Link>
+              <Nav.Link as={Link} className="fw-bold m-1 nav-underline   fs-6 y text-warning" to="/item/:itemId">InventoryManage</Nav.Link>
+              <Nav.Link as={Link} className="fw-bold m-1 nav-underline   fs-6 y text-warning" to="AllInventoryItems">AllInventoryManage</Nav.Link>
+              <Nav.Link as={Link} className="fw-bold m-1 nav-underline   fs-6 text-warning" to="/blogs">Blogs</Nav.Link>
              
               {
-                user?<Nav.Link onClick={handleSignOut}  className="fw-bold m-1   fs-6 y text-warning">Logout</Nav.Link>:<Nav.Link as={Link} className="fw-bold  m-1  fs-6 y text-warning" to="/login">Login</Nav.Link>
+                user?<Nav.Link onClick={handleSignOut}  className="fw-bold m-1 nav-underline   fs-6 y text-warning">Logout</Nav.Link>:<Nav.Link as={Link} className="fw-bold nav-underline  m-1  fs-6 y text-warning" to="/login">Login</Nav.Link>
               }
             </Nav>
           </Navbar.Collapse>

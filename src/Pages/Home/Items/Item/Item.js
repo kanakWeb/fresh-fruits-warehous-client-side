@@ -19,7 +19,7 @@ const Item = ({item}) => {
             <Card.Title>{name}</Card.Title>
             <Card.Text>
             <h6>Price : ${price}</h6>
-            <p>{description}</p>
+            <p><span className='fw-bold'>Description</span> : {description.slice(0,92)}</p>
             <h6>Supplier : {supplier}</h6>
             <h6>quantity : {quantity}</h6>
             </Card.Text>

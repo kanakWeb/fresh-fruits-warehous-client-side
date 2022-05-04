@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 
-const InventoryItem = ({item}) => {
+const AllInventoryItem = ({item}) => {
     const{picture,name,price,description,supplier,quantity}=item
     return (
         <div className='col-sm-12 col-md-6 col-lg-4  text-light  rounded rounded-lg 
@@ -13,7 +13,7 @@ const InventoryItem = ({item}) => {
             <Card.Title>{name}</Card.Title>
             <Card.Text>
             <h6>Price : ${price}</h6>
-            <p>{description}</p>
+            <p><span className='fw-bold'>Description</span> : {description.slice(0,92)}</p>
             <h6>Supplier : {supplier}</h6>
             <h6>quantity : {quantity}</h6>
             </Card.Text>
@@ -29,4 +29,4 @@ const InventoryItem = ({item}) => {
     );
 };
 
-export default InventoryItem;
+export default AllInventoryItem;

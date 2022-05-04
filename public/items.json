@@ -23,7 +23,7 @@
       "price": 48,
       "picture": "https://www.nicepng.com/png/detail/380-3807920_pineapple-png.png",
       "name": "pineapple",
-      "description":"Its is excellent, whether eaten as a snack, in a sweet dessert, in savory dishes like fried rice.",
+      "description":"Its is excellent, whether eaten as a snack, in a sweet dessert, in savory dishes like fried.",
       "supplier":"Rahim",
       "quantity":"50"
     },
@@ -42,7 +42,7 @@
       "price": 51,
       "picture": "https://d3mvlb3hz2g78.cloudfront.net/wp-content/uploads/2011/07/thumb_720_450_fresh-red-strawberry_shutterstock_77084539.jpg",
       "name": "Strawberry",
-      "description":"Strawberries are soft, sweet, bright red berries. They're also delicious. Strawberries have tiny.",
+      "description":"Strawberries are soft, sweet, bright red berries. They're also delicious.",
       "supplier":"Kobir",
       "quantity":"60"
     },
@@ -51,7 +51,7 @@
       "price": 53,
       "picture": "https://blog.pureindianfoods.com/wp-content/uploads/2020/09/alphonso-mango.jpg",
       "name": "Mango",
-      "description":" It is a very juicy, pulpy and luscious fruit . Ripe mangoes are juicy, fleshy, and delicious.",
+      "description":" It is a very juicy, pulpy and luscious fruit . Ripe mangoes are juicy, fleshy.",
       "supplier":"Rahim",
       "quantity":"40"
     },
@@ -69,7 +69,7 @@
       "price": 49,
       "picture": "https://i5.walmartimages.ca/images/Enlarge/538/392/6000198538392.jpg",
       "name": "guava",
-      "description":"An guava is a round fruit guava  white, yellow, or pink flesh. The musky, at times pungent,  good.",
+      "description":"An guava is a round fruit guava  white, yellow, or pink flesh. The musky, at times pungent,good.",
       "supplier":"Rahim",
       "quantity":"20"
     }

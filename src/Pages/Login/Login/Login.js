@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import {
-  useCreateUserWithEmailAndPassword,
-  useSendPasswordResetEmail,
+import {useSendPasswordResetEmail, useSignInWithEmailAndPassword
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -13,97 +11,143 @@ import auth from "../../../firebase.init";
 import './Login.css'
 
 const Login = () => {
-  const [email, SetEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending] =
+    useSendPasswordResetEmail(auth);
+
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, {
-      sendEmailVerification: true,
-    });
-
-  const handleEmailLogin = (event) => {
-    SetEmail(event.target.value);
+  const handleLoginEmail = (event) => {
+    setEmail(event.target.value);
   };
-  const handlePasswordLogin = (event) => {
+  const handleLoginPassword = (event) => {
     setPassword(event.target.value);
   };
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  const handleLogin = (event) => {
+  const handleLogin = async(event) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(email, password);
-    navigate("/");
+   await signInWithEmailAndPassword(email,password)
   };
 
+  let from = location.state?.from?.pathname || "/";
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  if(loading||sending){
+    return <h2 className="text-center">loading......</h2>
+    }
+
+
+  const ResetPassword=async()=>{
+    if(email) {
+     await sendPasswordResetEmail(email);
+      toast('Sent email');
+    }
+      else{
+        toast('please enter your email address');
+      }
+    }
+
+    let errorLogin;
+    if (error) {
+      errorLogin = (
+        <p className="text-info bg-danger  text-center p-1 rounded">
+          Error: {error?.message}
+        </p>
+      );
+    }
+
+  
   return (
-    <div className="">
-      <div>
-        <div className="container my-5">
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-8 col-lg-6 pb-5">
+    <div>
+      <div class="container  my-5">
+        <div class="row margin-top justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 pb-5">
+            {/* --Form with header-- */}
 
-              <form className="sizing-card" onSubmit={handleLogin}>
-                <div className="card login-card rounded-3">
-                  <div className="card-header p-0">
-                    <div className="login-card  text-white text-center py-2">
-                      <h3>Please Login</h3>
-                      <p className="m-0">This is admin User</p>
-                    </div>
+            <form className="card-sizing" onSubmit={handleLogin}>
+              <div class="card login-card  rounded-3">
+                <div class="card-header p-0">
+                  <div class="text-white text-center py-2">
+                    <h3>Please login</h3>
                   </div>
-                  <div className="card-body p-3">
-                    <div className="form-group">
-                      <div className="input-group my-4">
-                        <div className="input-group-prepend">
-                          <div className="input-group-text">
-                            <span>📨</span>
-                          </div>
+                </div>
+                <div class="card-body  pt-5">
+                  {/*  --Body--*/}
+                  <div class="form-group">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <span>📨</span>
                         </div>
-                        <input
-                          onChange={handleEmailLogin}
-                          type="email"
-                          className="form-control"
-                          id="email"
-                          name="email"
-                          placeholder="email@gmail.com"
-                          required
-                        />
                       </div>
-                    </div>
-
-                    <div className="form-group">
-                      <div className="input-group mb-2">
-                        <div className="input-group-prepend">
-                          <div className="input-group-text">
-                            <span>🔑</span>
-                          </div>
-                        </div>
-                        <input
-                          onChange={handlePasswordLogin}
-                          type="password"
-                          className="form-control"
-                          placeholder="password"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="text-center">
                       <input
-                        type="submit"
-                        value="Login"
-                        className="btn btn-warning btn-block rounded-0 py-2 mt-4 rounded-lg"
+                      onChange={handleLoginEmail}
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="please enter your email"
+                        required
                       />
                     </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group mb-2 my-3">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <span>🔑</span>
+                        </div>
+                      </div>
+                      <input
+                      onChange={handleLoginPassword}
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="please enter your password"
+                        
+                      required/>
                     </div>
-                  <SocialLogin></SocialLogin>
+                  </div>
+
+                  <div class="form-group"></div>
+
+                  <div class="text-center">
+                    <input
+                      type="submit"
+                      value="Log in"
+                      class="btn btn-warning btn-block rounded-3 my-3 py-2"
+                    />
+                    <h4>{errorLogin}</h4>
+                      <button onClick={ResetPassword} className="btn btn-link  rounded-2 mx-3 text-decoration-none  py-2">Reset password</button>
+                  </div>
+                
+                  <div className="d-flex align-items-center ">
+                    <span>haven't account?</span>
+                    <Link
+                      className="btn-link btn mx-2 text-decoration-none btn-block"
+                      to="/signup"
+                    >
+                      Sign up
+                    </Link>
+                  </div>
+                  <ToastContainer />
                 </div>
-              </form>
-            </div>
+                <SocialLogin></SocialLogin>
+              </div>
+            </form>
+            {/* --Form with header-- */}
           </div>
+      
         </div>
       </div>
     </div>

@@ -1,8 +1,9 @@
 import React from 'react';
 import useItems from '../../../hooks/useItems';
-import InventoryItem from '../InventoryItem/InventoryItem';
+import AllInventoryItem from '../AllInventoryItem/AllInventoryItem';
 
-const InventoryItems = () => {
+
+const AllInventoryItems = () => {
     const[items]=useItems([])
     
     return (
@@ -11,10 +12,10 @@ const InventoryItems = () => {
            <h2 className='my-5 text-center  text-warning fw-bold  fs-1'>All Inventory Items</h2> 
            <div className="row m-2 g-5">
                {
-                   items.map(item=><InventoryItem
+                   items.map(item=><AllInventoryItem
                    key={item.id}
                    item={item}
-                   ></InventoryItem>)
+                   ></AllInventoryItem>)
                }
            </div>
         </div>
@@ -22,4 +23,4 @@ const InventoryItems = () => {
     );
 };
 
-export default InventoryItems;
+export default AllInventoryItems;
