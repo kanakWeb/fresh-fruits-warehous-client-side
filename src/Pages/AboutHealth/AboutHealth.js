@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../images/banner2.jpg";
+import image from "../../images/banner2 (2).jpg";
 
 const AboutHealth = () => {
   return (
@@ -12,14 +12,14 @@ const AboutHealth = () => {
         borderRadius: "10px",
       }}
     >
-      <h2 className="text-center py-5 fs-2 text-info fw-bold">
+      <h2 className="text-center py-3 fs-2 text-info fw-bold">
         About For Health{" "}
       </h2>
       <div className="w-100 row mt-5">
-        <div className="col-lg-5 col-sm-12 col-md-12 mt-2">
+        <div className="col-lg-5 col-sm-12 col-md-12 mt-4">
           <img
-            width="500px"
-            className="img-thumbnail rounded"
+           
+            className="img-thumbnail p-5 border-warning rounded"
             src={image}
             alt=""
           />
@@ -27,7 +27,7 @@ const AboutHealth = () => {
 
         <div className=" col-lg-7 col-sm-12 col-md-12">
           <h2 className="text-info">About:</h2>
-          <p className="fs-4 ">
+          <p className="fs-4 ">Fruits are an excellent source of essential vitamins and minerals, and they are high in fiber. Fruits also provide a wide range of health-boosting antioxidants, including flavonoids.
             If you like to feed your family members with natural or
             organic foods, delight in Walmart's inventory of organic
             thrills, which are made without man-made active
