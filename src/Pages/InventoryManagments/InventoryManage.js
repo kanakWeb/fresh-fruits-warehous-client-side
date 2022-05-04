@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useItems from "../../hooks/useItems";
 
-const DetailItems = () => {
+
+const InventoryManage = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -14,6 +14,10 @@ const DetailItems = () => {
   console.log(items);
   const deliveryHandle = () => {
     alert("Yeah! Done your delivery");
+    /* console.log(items);
+    const newQuantity=(parseInt(item[0]?.quantity))-1
+    return setItems(newQuantity) */
+  
   };
   const item = items.filter((itemOne) => itemOne.id === itemId);
 
@@ -98,8 +102,7 @@ const DetailItems = () => {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="password"
-                        required
+                       required
                       />
                     </div>
                   </div>
@@ -113,8 +116,7 @@ const DetailItems = () => {
                       <input
                         type="password"
                         className="form-control"
-                        placeholder="password"
-                        required
+                       required
                       />
                     </div>
                   </div>
@@ -150,4 +152,4 @@ const DetailItems = () => {
   );
 };
 
-export default DetailItems;
+export default InventoryManage;

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 
-const ManageItem = ({item}) => {
+const InventoryItem = ({item}) => {
     const{picture,name,price,description,supplier,quantity}=item
     return (
-       <div className='col-sm-12 col-md-6 col-lg-4  text-light  rounded rounded-lg 
+        <div className='col-sm-12 col-md-6 col-lg-4  text-light  rounded rounded-lg 
         '>
             <CardGroup className='shadow shadow-lg '>
-        <Card >
+        <Card style={{background:'#857360'}} className=''>
           <Card.Img variant="top" width='200px'height='200px' src={picture} />
-          <Card.Body style={{background:'#857360'}}>
+          <Card.Body>
             <Card.Title>{name}</Card.Title>
-            <Card.Text  >
+            <Card.Text>
             <h6>Price : ${price}</h6>
             <p>{description}</p>
             <h6>Supplier : {supplier}</h6>
@@ -19,8 +19,8 @@ const ManageItem = ({item}) => {
             </Card.Text>
           </Card.Body>
           
-            <button className="btn  text-light  btn-warning m-1 fw-bold fs-5">Delete item</button>
-  
+            <button className="btn text-light btn-warning fw-bold fs-5">Delete Item</button>
+          
         </Card>
         
         
@@ -29,4 +29,4 @@ const ManageItem = ({item}) => {
     );
 };
 
-export default ManageItem;
+export default InventoryItem;

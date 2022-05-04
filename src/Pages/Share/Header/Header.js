@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar,Container,Nav } from "react-bootstrap";
-import Logo from '../../../images/Logo2.png'
 import { Link } from 'react-router-dom';
 import './Header.css'
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -10,7 +9,6 @@ import { signOut } from "firebase/auth";
 const Header = () => {
   
   const [user] = useAuthState(auth);
-  console.log(user);
   const handleSignOut = () => {
     signOut(auth);
   };
@@ -24,9 +22,10 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto mb-0">
               <Nav.Link as={Link} className="fw-bold  m-1  fs-6 y text-warning" to="/">Home</Nav.Link>
-              <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="/items">InventoryItems</Nav.Link>
+              <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="InventoryItems">InventoryItems</Nav.Link>
+              <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="/item/:itemId">InventoryManage</Nav.Link>
               <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="/blogs">Blogs</Nav.Link>
-              <Nav.Link as={Link} className="fw-bold m-1  fs-6 y text-warning" to="/ManageItem">InventoryManage</Nav.Link>
+             
               {
                 user?<Nav.Link onClick={handleSignOut}  className="fw-bold m-1   fs-6 y text-warning">Logout</Nav.Link>:<Nav.Link as={Link} className="fw-bold  m-1  fs-6 y text-warning" to="/login">Login</Nav.Link>
               }
