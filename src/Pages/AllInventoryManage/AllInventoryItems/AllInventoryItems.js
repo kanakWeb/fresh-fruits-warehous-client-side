@@ -9,7 +9,7 @@ const AllInventoryItems = () => {
     return (
         <div className='margin-top'>
             <div className='margin-top margin-bottom'>
-           <h2 className='my-5 text-center  text-warning fw-bold  fs-1'>All Inventory Items</h2> 
+           <h2 className='my-5 text-center text-uppercase  text-info fw-bold  fs-2'>All Inventory Items</h2> 
            <div className="row m-2 g-5">
                {
                    items.map(item=><AllInventoryItem

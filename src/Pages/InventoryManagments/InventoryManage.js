@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 const InventoryManage = () => {
@@ -57,69 +57,10 @@ const InventoryManage = () => {
               <div className="card login-card rounded-3">
                 <div className="card-header p-0">
                   <div className="login-card  text-white text-center py-2">
-                    <p className="py-3">Add a new items</p>
+                    <p className="py-3 fs-4 fw-bold">Add Quantity</p>
                   </div>
                 </div>
                 <div className="card-body p-3">
-                  <div className="form-group">
-                    <div className="input-group my-4">
-                      <div className="input-group-prepend">
-                        <div className="input-group-text">
-                          <span>picture</span>
-                        </div>
-                      </div>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="text"
-                        name="text"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <div className="input-group mb-2">
-                      <div className="input-group-prepend">
-                        <div className="input-group-text">
-                          <span>price</span>
-                        </div>
-                      </div>
-                      <input
-                        type="text"
-                        className="form-control"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <div className="input-group mb-2">
-                      <div className="input-group-prepend">
-                        <div className="input-group-text">
-                          <span>Description</span>
-                        </div>
-                      </div>
-                      <input
-                        type="text"
-                        className="form-control"
-                       required
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <div className="input-group mb-2">
-                      <div className="input-group-prepend">
-                        <div className="input-group-text">
-                          <span>Supplier</span>
-                        </div>
-                      </div>
-                      <input
-                        type="password"
-                        className="form-control"
-                       required
-                      />
-                    </div>
-                  </div>
                   <div className="form-group">
                     <div className="input-group mb-2">
                       <div className="input-group-prepend">
@@ -138,8 +79,8 @@ const InventoryManage = () => {
                   <div className="text-center">
                     <button
                       
-                      className="btn btn-warning btn-block rounded-0 py-2 mt-4 rounded-lg"
-                    >AddItem</button>
+                      className="btn fw-bold text-light  btn-warning btn-block rounded-3 py-2 mt-4 rounded-lg"
+                    >Add Quantity</button>
                   </div>
                 </div>
               </div>
@@ -147,6 +88,9 @@ const InventoryManage = () => {
           </div>
         </div>
       </div>
+      </div>
+      <div className="ms-auto w-25">
+        <Link to='/AllInventoryItems' className="btn btn-warning">All Inventory Manage</Link>
       </div>
     </div>
   );
