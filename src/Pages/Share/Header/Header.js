@@ -32,13 +32,7 @@ const Header = () => {
               >
                 Home
               </Nav.Link>
-              <Nav.Link
-                as={Link}
-                className="fw-bold m-1 nav-underline   fs-6 y text-dark"
-                to="/item/:itemId"
-              >
-                InventoryManage
-              </Nav.Link>
+              
               <Nav.Link
                 as={Link}
                 className="fw-bold m-1 nav-underline   fs-6 y text-dark"
