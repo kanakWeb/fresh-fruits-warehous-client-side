@@ -7,19 +7,81 @@ const InventoryManage = () => {
 
   useEffect(() => {
     const url = `http://localhost:5000/inventoryItem/${itemId}`;
+    // console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));
-  }, []);
+  }, [items]);
 
-  console.log(items);
+//  console.log(itemId);
   const deliveryHandle = () => {
     alert("Yeah! Done your delivery");
-    /* console.log(items);
-    const newQuantity=(parseInt(item[0]?.quantity))-1
-    return setItems(newQuantity) */
+    
   };
-  // const item = items.filter((itemOne) => itemOne._id === itemId);
+  
+
+  const handleFormSubmit=(event)=>{
+event.preventDefault()
+    const quantity = event.target.AddQuantity.value;
+    if (!quantity) {
+        alert("input field can't be empty")
+    } else {
+        const newQuantity = parseInt(items.quantity) + parseInt(quantity)
+        const newQuantityObj = { newQuantity }
+
+        fetch(`http://localhost:5000/inventoryItem/${itemId}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newQuantityObj)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data)
+
+                //    toast('item restock successfully')
+            })
+        event.target.reset()
+    }
+
+
+
+  }
+
+
+//delivery 
+ 
+const handleDelivery=(itemId)=>{
+
+  const quantity = items.quantity;
+  console.log(quantity);
+  if (quantity > 0) {
+      const quantityObj = { quantity };
+      const url =`http://localhost:5000/delivery/${itemId}`
+      fetch(url, {
+          method: 'PUT',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(quantityObj)
+      })
+          .then(res => res.json())
+          .then(data => {
+              console.log('success', data)
+
+              //    toast('item restock successfully')
+          })
+  } else {
+      alert('Stock out')
+  }
+}
+
+
+
+
+
+
 
   return (
     <div className="margin-top margin-bottom">
@@ -43,7 +105,7 @@ const InventoryManage = () => {
                 onClick={deliveryHandle}
                 className="card-text btn btn-warning"
               >
-                <small className="">Delivery</small>
+                <small onClick={()=>handleDelivery(itemId)} className="">Delivery</small>
               </button>
             </div>
           </div>
@@ -53,7 +115,7 @@ const InventoryManage = () => {
         <div className="col col-sm-12 col-md-12 col-lg-10 w-50 mx-auto mt-0">
           <div className="justify-content-center">
             <div className="pb-5">
-              <form className="sizing-card">
+              <form onSubmit={handleFormSubmit} className="sizing-card">
                 <div className="card login-card rounded-3">
                   <div className="card-header p-0">
                     <div className="login-card  text-white text-center py-2">
@@ -71,6 +133,7 @@ const InventoryManage = () => {
                           </div>
                         </div>
                         <input
+                        name="AddQuantity"
                           type="text"
                           className="form-control"
                           required

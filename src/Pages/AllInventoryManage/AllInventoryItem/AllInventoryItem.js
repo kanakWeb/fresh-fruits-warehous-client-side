@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 
-const AllInventoryItem = ({item}) => {
-    const{picture,name,price,description,supplier,quantity}=item
+const AllInventoryItem = ({item,handleDelete}) => {
+    const{_id,picture,name,price,description,supplier,quantity}=item
     return (
         <div className='col-sm-12 col-md-6 col-lg-4  text-light  rounded rounded-lg 
         '>
@@ -19,7 +19,7 @@ const AllInventoryItem = ({item}) => {
             </Card.Text>
           </Card.Body>
           
-            <button className="btn text-light btn-warning fw-bold fs-5">Delete Item</button>
+            <button onClick={()=>handleDelete(_id)} className="btn text-light btn-warning fw-bold fs-5">Delete Item</button>
           
         </Card>
         

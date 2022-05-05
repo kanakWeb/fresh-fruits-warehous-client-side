@@ -4,8 +4,23 @@ import AllInventoryItem from '../AllInventoryItem/AllInventoryItem';
 
 
 const AllInventoryItems = () => {
-    const[items]=useItems([])
-    
+    const[items]=useItems()
+
+
+    const handleDelete=(id)=>{
+const deleteItem=window.confirm("Are You sure?")
+
+if(deleteItem){
+    const url=`http://localhost:5000/inventoryItem/${id}`
+    fetch(url,{
+        method:'DELETE'
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+    })
+}
+    }
     return (
         <div className='margin-top'>
             <div className='margin-top margin-bottom'>
@@ -15,6 +30,7 @@ const AllInventoryItems = () => {
                    items.map(item=><AllInventoryItem
                    key={item._id}
                    item={item}
+                   handleDelete={handleDelete}
                    ></AllInventoryItem>)
                }
            </div>
