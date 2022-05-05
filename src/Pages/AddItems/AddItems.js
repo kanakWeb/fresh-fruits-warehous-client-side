@@ -40,6 +40,12 @@ const AddItems = () => {
          required />
           <input
             className="my-2"
+            placeholder="Supplier name:"
+            type="text"
+            {...register("supplier")}
+         required />
+          <input
+            className="my-2"
             placeholder="Price:$"
             type="number"
             {...register("price")}

@@ -33,13 +33,7 @@ const Header = () => {
                 Home
               </Nav.Link>
               
-              <Nav.Link
-                as={Link}
-                className="fw-bold m-1 nav-underline   fs-6 y text-dark"
-                to="AllInventoryItems"
-              >
-                AllInventoryManage
-              </Nav.Link>
+              
               <Nav.Link
                 as={Link}
                 className="fw-bold m-1 nav-underline   fs-6 text-dark"
@@ -48,14 +42,32 @@ const Header = () => {
                 Blogs
               </Nav.Link>
 
-              {user ? (
+              {user ? 
+                <>
                 <Nav.Link
-                  onClick={handleSignOut}
-                  className="fw-bold m-1 nav-underline   fs-6 y text-dark"
-                >
-                  Logout
-                </Nav.Link>
-              ) : (
+                as={Link}
+                className="fw-bold m-1 nav-underline   fs-6 text-dark"
+                to="/addItems"
+              >
+                Add Items
+              </Nav.Link>
+                
+                <Nav.Link
+                as={Link}
+                className="fw-bold m-1 nav-underline   fs-6 y text-dark"
+                to="AllInventoryItems"
+              >
+                AllInventoryManage
+              </Nav.Link>
+                <Nav.Link
+                onClick={handleSignOut}
+                className="fw-bold m-1 nav-underline   fs-6 y text-dark"
+              >
+                Logout
+              </Nav.Link>
+              
+              </>
+               : 
                 <Nav.Link
                   as={Link}
                   className="fw-bold nav-underline  m-1  fs-6 y text-dark"
@@ -63,7 +75,7 @@ const Header = () => {
                 >
                   Login
                 </Nav.Link>
-              )}
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>
