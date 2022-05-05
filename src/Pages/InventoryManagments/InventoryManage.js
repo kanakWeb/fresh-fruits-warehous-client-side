@@ -6,12 +6,12 @@ const InventoryManage = () => {
   const [items, setItems] = useState({});
 
   useEffect(() => {
-    const url=`http://localhost:5000/inventoryItem/${itemId}`
+    const url = `http://localhost:5000/inventoryItem/${itemId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
-  
+
   console.log(items);
   const deliveryHandle = () => {
     alert("Yeah! Done your delivery");

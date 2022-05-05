@@ -13,7 +13,7 @@ const AllInventoryItems = () => {
            <div className="row m-2 g-5">
                {
                    items.map(item=><AllInventoryItem
-                   key={item.id}
+                   key={item._id}
                    item={item}
                    ></AllInventoryItem>)
                }
