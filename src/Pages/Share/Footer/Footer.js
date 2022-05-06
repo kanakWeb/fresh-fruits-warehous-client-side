@@ -6,7 +6,7 @@ const Footer = () => {
     <div className=" margin-top">
       <footer
         style={{ background: "#191e32" }}
-        className="page-footer  mb-0  text-light   font-small blue pt-4"
+        className=" footer mb-0  text-light   font-small blue pt-4"
       >
         <div className="container-fluid text-center text-md-left">
           <div className="row">

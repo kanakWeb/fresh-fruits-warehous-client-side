@@ -1,9 +1,12 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import auth from "../../firebase.init";
 
 const AddItems = () => {
+  const [user]=useAuthState(auth)
   const { register, handleSubmit } = useForm();
   const onSubmit = (data,event) => {
     console.log(data);
@@ -22,7 +25,7 @@ const AddItems = () => {
         event.target.reset()
       });
   };
-
+console.log(user);
   return (
     <div className="margin-top">
       <h2 className="text-info text-center"> Add Items</h2>
@@ -32,6 +35,12 @@ const AddItems = () => {
           className="d-flex flex-column"
           onSubmit={handleSubmit(onSubmit)}
         >
+          <input
+            className="my-2"
+            placeholder={user.email}
+            type="text"
+            {...register("name")}
+         disabled />
           <input
             className="my-2"
             placeholder="Item name:"

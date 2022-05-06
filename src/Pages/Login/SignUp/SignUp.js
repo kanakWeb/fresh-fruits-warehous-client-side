@@ -1,57 +1,62 @@
 import React from "react";
 import { useState } from "react";
-import { useAuthState, useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
-
-
 const SignUp = () => {
-  const [user1]=useAuthState(auth)
-  const[name,setName]=useState()
-  const[email,SetEmail]=useState()
-  const[password,setPassword]=useState()
+  const [user1] = useAuthState(auth);
+  const [name, setName] = useState();
+  const [email, SetEmail] = useState();
+ 
 
-const navigate=useNavigate()
-const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-let from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || "/";
 
+ 
 
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, {
+      sendEmailVerification: true,
+    });
 
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+  const handleNameSignup = (event) => {
+    setName(event.target.value);
+  };
 
-  const handleNameSignup=(event)=>{
-    setName(event.target.value)
-  }
+  const handleEmailSignup = (event) => {
+    SetEmail(event.target.value);
+  };
   
-  const handleEmailSignup=(event)=>{
-    SetEmail(event.target.value)
-  }
-  const handlePasswordSignup=(event)=>{
-    setPassword(event.target.value)
-  }
 
   if (loading) {
     return <p>Loading...</p>;
   }
 
-  const handleSignup=(event)=>{
-    event.preventDefault()
-     createUserWithEmailAndPassword(email,password)
-     if (user1) {
-      navigate(from, { replace: true });
-    }
-  
-  }
 
-  
+  const handleSignup = (event) => {
+    event.preventDefault();
+    const password=event.target.password.value
+
+    if(/.{6}/.test(password)){
+      createUserWithEmailAndPassword(email,password)
+      
+      if (user1) {
+       navigate(from, { replace: true });
+     }
+     
+    }
+    else{
+      toast("Minimum 6 number ")
+    }
+  };
 
   return (
     <div>
@@ -61,7 +66,7 @@ let from = location.state?.from?.pathname || "/";
             <div class="col-12 col-md-8 col-lg-6 pb-5">
               {/* --Form with header-- */}
 
-              <form onSubmit={handleSignup} >
+              <form onSubmit={handleSignup}>
                 <div class="card border-primary login-card rounded-3">
                   <div class="card-header p-0">
                     <div class="text-white text-center py-2">
@@ -79,7 +84,7 @@ let from = location.state?.from?.pathname || "/";
                           </div>
                         </div>
                         <input
-                        onChange={handleNameSignup}
+                          onChange={handleNameSignup}
                           type="text"
                           class="form-control"
                           id="name"
@@ -97,7 +102,7 @@ let from = location.state?.from?.pathname || "/";
                           </div>
                         </div>
                         <input
-                        onChange={handleEmailSignup}
+                          onChange={handleEmailSignup}
                           type="email"
                           class="form-control"
                           id="email"
@@ -116,7 +121,7 @@ let from = location.state?.from?.pathname || "/";
                           </div>
                         </div>
                         <input
-                        onChange={handlePasswordSignup}
+                          name="password"
                           type="password"
                           class="form-control"
                           placeholder="password"
@@ -132,12 +137,18 @@ let from = location.state?.from?.pathname || "/";
                         class="btn btn-warning btn-block rounded-3 py-2"
                       />
                     </div>
-                    <div className="d-flex align-items-center "> 
-                  <span>already have an account?</span>
-                  <Link className="btn-link btn mx-2 text-decoration-none btn-block" to="/login">Log In</Link>
+                    <div className="d-flex align-items-center ">
+                      <span>already have an account?</span>
+                      <Link
+                        className="btn-link btn mx-2 text-decoration-none btn-block"
+                        to="/login"
+                      >
+                        Log In
+                      </Link>
+                    </div>
+                    <ToastContainer />
                   </div>
-                  </div>
-                 <SocialLogin></SocialLogin>
+                  <SocialLogin></SocialLogin>
                 </div>
               </form>
               {/* --Form with header-- */}

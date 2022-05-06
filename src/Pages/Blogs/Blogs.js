@@ -1,11 +1,11 @@
 import React from "react";
-import "./Blog.css";
+import './Blog.css'
 
 const Blogs = () => {
   return (
-    <div className="blog-top margin-bottom w-100 h-100 bg-blogs container">
+    <div className=" blog-top margin-bottom w-100 h-100 bg-blogs container">
       <div className="accordion" id="accordionPanelsStayOpenExample">
-        <div className="accordion-item">
+        <div className="accordion-item ">
           <h2
             className="accordion-header"
             id="panelsStayOpen-headingOne"

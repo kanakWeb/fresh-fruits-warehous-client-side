@@ -14,8 +14,8 @@ const Reviews = () => {
     >
       <div className="container">
         <div className="row">
-          <h2 className="py-3 fs-2 fw-bold text-info text-center">
-            Customer's Review
+          <h2 className="py-5 fs-2 fw-bold text-info text-center text-uppercase">
+            Customers Review
           </h2>
         </div>
         <div className="qa-message-list" id="wallmessages">
