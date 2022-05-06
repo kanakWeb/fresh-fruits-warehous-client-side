@@ -97,10 +97,10 @@ const handleDelivery=(itemId)=>{
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{items.name}</h5>
-              <h5 className="card-title">{items.price}</h5>
-              <p className="card-text">{items.description}</p>
-              <p className="card-text">{items.supplier}</p>
-              <p className="card-text">{items.quantity}</p>
+              <h6 className="card-title">Price : ${items.price}</h6>
+              <p className="card-text">Description : {items.description}</p>
+              <p className="card-text">Supplier : {items.supplier}</p>
+              <p className="card-text">Quantity : {items.quantity}</p>
               <button
                 onClick={deliveryHandle}
                 className="card-text btn btn-warning"
