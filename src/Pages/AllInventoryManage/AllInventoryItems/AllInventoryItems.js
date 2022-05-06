@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useItems from '../../../hooks/useItems';
 import AllInventoryItem from '../AllInventoryItem/AllInventoryItem';
 
@@ -34,6 +35,9 @@ if(deleteItem){
                    ></AllInventoryItem>)
                }
            </div>
+           <div className=' py-5 w-50 ms-auto '><Link to="/addItems" className="btn btn-warning">
+          Add New Item
+        </Link></div>
         </div>
         </div>
     );
