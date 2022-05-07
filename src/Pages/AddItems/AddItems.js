@@ -9,7 +9,7 @@ const AddItems = () => {
   const [user]=useAuthState(auth)
   const { register, handleSubmit } = useForm();
   const onSubmit = (data,event) => {
-    console.log(data);
+    data.email=user.email;
     const url = `http://localhost:5000/inventoryItem`;
     fetch(url, {
       method: "POST",
@@ -25,7 +25,7 @@ const AddItems = () => {
         event.target.reset()
       });
   };
-console.log(user);
+
   return (
     <div className="margin-top">
       <h2 className="text-info text-center"> Add Items</h2>
@@ -37,10 +37,10 @@ console.log(user);
         >
           <input
             className="my-2"
-            placeholder={user.email}
-            type="text"
-            {...register("name")}
-         disabled />
+            placeholder={user?.email}
+            type="email"
+            {...register("email")}
+        required disabled />
           <input
             className="my-2"
             placeholder="Item name:"

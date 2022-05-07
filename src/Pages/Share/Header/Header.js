@@ -47,6 +47,13 @@ const Header = () => {
                 <Nav.Link
                 as={Link}
                 className="fw-bold m-1 nav-underline   fs-6 text-dark"
+                to="/myItems"
+              >
+                My Items
+              </Nav.Link>
+                <Nav.Link
+                as={Link}
+                className="fw-bold m-1 nav-underline   fs-6 text-dark"
                 to="/addItems"
               >
                 Add Items
