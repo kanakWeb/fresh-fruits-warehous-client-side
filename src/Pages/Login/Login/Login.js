@@ -1,7 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import {useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword
+import {
+  useAuthState,
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -9,23 +12,23 @@ import { async } from "@firebase/util";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../../firebase.init";
-import './Login.css'
+import "./Login.css";
 
 const Login = () => {
-  const [user1]=useAuthState(auth)
+  const [user1] = useAuthState(auth);
   console.log(user1);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-    const [sendPasswordResetEmail, sending] =
+  const [sendPasswordResetEmail, sending] =
     useSendPasswordResetEmail(auth);
 
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const handleLoginEmail = (event) => {
     setEmail(event.target.value);
   };
@@ -33,45 +36,45 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-  const handleLogin = async(event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-   await signInWithEmailAndPassword(email,password)
-    const {data}= await axios.post('http://localhost:5000/login',{email});
-    localStorage.setItem('accessToken',data.accessToken)
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      "https://whispering-scrubland-68201.herokuapp.com/login",
+      { email }
+    );
+    localStorage.setItem("accessToken", data.accessToken);
     navigate(from, { replace: true });
   };
 
   let from = location.state?.from?.pathname || "/";
 
   if (user1) {
-    navigate(from, { replace: true }); 
+    navigate(from, { replace: true });
   }
 
-  if(loading||sending){
-    return <h2 className="text-center">loading......</h2>
-    }
+  if (loading || sending) {
+    return <h2 className="text-center margin-top">loading......</h2>;
+  }
 
-
-  const ResetPassword=async()=>{
-    if(email) {
-     await sendPasswordResetEmail(email);
-      toast('Sent email');
+  const ResetPassword = async () => {
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("please enter your email address");
     }
-      else{
-        toast('please enter your email address');
-      }
-    }
+  };
 
-    let errorLogin;
-    if (error) {
-      errorLogin = (
-        <p className="text-info bg-danger  text-center p-1 rounded">
-          Error: {error?.message}
-        </p>
-      );
-    }
+  let errorLogin;
+  if (error) {
+    errorLogin = (
+      <p className="text-info bg-danger  text-center p-1 rounded">
+        Error: {error?.message}
+      </p>
+    );
+  }
 
-  
   return (
     <div>
       <div class="container  my-5">
@@ -96,7 +99,7 @@ const Login = () => {
                         </div>
                       </div>
                       <input
-                      onChange={handleLoginEmail}
+                        onChange={handleLoginEmail}
                         type="email"
                         class="form-control"
                         id="email"
@@ -114,14 +117,14 @@ const Login = () => {
                         </div>
                       </div>
                       <input
-                      onChange={handleLoginPassword}
+                        onChange={handleLoginPassword}
                         type="password"
                         class="form-control"
                         id="password"
                         name="password"
                         placeholder="please enter your password"
-                        
-                      required/>
+                        required
+                      />
                     </div>
                   </div>
 
@@ -134,9 +137,14 @@ const Login = () => {
                       class="btn btn-warning btn-block rounded-3 my-3 py-2"
                     />
                     <h4>{errorLogin}</h4>
-                      <button onClick={ResetPassword} className="btn btn-link  rounded-2 mx-3 text-decoration-none  py-2">Reset password</button>
+                    <button
+                      onClick={ResetPassword}
+                      className="btn btn-link  rounded-2 mx-3 text-decoration-none  py-2"
+                    >
+                      Reset password
+                    </button>
                   </div>
-                
+
                   <div className="d-flex align-items-center ">
                     <span>haven't account?</span>
                     <Link
@@ -153,7 +161,6 @@ const Login = () => {
             </form>
             {/* --Form with header-- */}
           </div>
-      
         </div>
       </div>
     </div>

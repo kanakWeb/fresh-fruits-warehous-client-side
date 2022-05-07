@@ -6,11 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 
 const AddItems = () => {
-  const [user]=useAuthState(auth)
+  const [user] = useAuthState(auth);
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data,event) => {
-    data.email=user.email;
-    const url = `http://localhost:5000/inventoryItem`;
+  const onSubmit = (data, event) => {
+    data.email = user.email;
+    const url = `https://whispering-scrubland-68201.herokuapp.com/inventoryItem`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -22,7 +22,7 @@ const AddItems = () => {
       .then((result) => {
         console.log(result);
         toast("Item added Successfully");
-        event.target.reset()
+        event.target.reset();
       });
   };
 
@@ -40,42 +40,50 @@ const AddItems = () => {
             placeholder={user?.email}
             type="email"
             {...register("email")}
-        required disabled />
+            required
+            disabled
+          />
           <input
             className="my-2"
             placeholder="Item name:"
             type="text"
             {...register("name")}
-         required />
+            required
+          />
           <input
             className="my-2"
             placeholder="Supplier name:"
             type="text"
             {...register("supplier")}
-         required />
+            required
+          />
           <input
             className="my-2"
             placeholder="Price:$"
             type="number"
             {...register("price")}
-         required />
+            required
+          />
           <textarea
             className="my-2"
             placeholder="Description:"
             {...register("description")}
-          required/>
+            required
+          />
           <input
             className="my-2"
             placeholder="Quantity:"
             type="number"
             {...register("quantity")}
-         required />
+            required
+          />
           <input
             className="mb-2"
             placeholder="Photo URL"
             type="text"
             {...register("picture")}
-         required />
+            required
+          />
           <input
             className="my-2 bg-warning btn text-light fw-bold"
             type="submit"
