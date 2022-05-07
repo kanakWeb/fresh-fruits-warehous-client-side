@@ -7,6 +7,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../firebase.init";
+import useToken from "../../../hooks/useToken";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
@@ -30,7 +31,7 @@ const SignUp = () => {
   const handleNameSignup = (event) => {
     setName(event.target.value);
   };
-
+const [token]=useToken(user)
   const handleEmailSignup = (event) => {
     SetEmail(event.target.value);
   };
@@ -48,7 +49,7 @@ const SignUp = () => {
     if(/.{6}/.test(password)){
       createUserWithEmailAndPassword(email,password)
       
-      if (user1) {
+      if (token) {
        navigate(from, { replace: true });
      }
      
@@ -57,6 +58,10 @@ const SignUp = () => {
       toast("Minimum 6 number ")
     }
   };
+
+  if (token){
+    navigate('/')
+  }
 
   return (
     <div>

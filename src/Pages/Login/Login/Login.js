@@ -13,6 +13,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../../firebase.init";
 import "./Login.css";
+import useToken from "../../../hooks/useToken";
 
 const Login = () => {
   const [user1] = useAuthState(auth);
@@ -26,6 +27,9 @@ const Login = () => {
   const [sendPasswordResetEmail, sending] =
     useSendPasswordResetEmail(auth);
 
+
+const[token]=useToken(user)
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,22 +40,19 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
+  let from = location.state?.from?.pathname || "/";
   const handleLogin = async (event) => {
     event.preventDefault();
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post(
-      "https://whispering-scrubland-68201.herokuapp.com/login",
-      { email }
-    );
-    localStorage.setItem("accessToken", data.accessToken);
-    navigate(from, { replace: true });
+    
+    
   };
 
-  let from = location.state?.from?.pathname || "/";
+ 
 
-  if (user1) {
-    navigate(from, { replace: true });
-  }
+  if (token) {
+   navigate(from, { replace: true });
+   }
 
   if (loading || sending) {
     return <h2 className="text-center margin-top">loading......</h2>;
