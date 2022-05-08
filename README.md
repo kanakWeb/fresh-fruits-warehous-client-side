@@ -14,7 +14,7 @@
  [Server site Link >>](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-kanakWeb.git)
 </br>
 
- [Live site Link >>](https://fresh-fruits-f5235.web.app/)
+ [Live site Link >>](https://fresh-fruits-f5235.web.app)
 </br>
 </br></br>
 <h2>Here is my work details</h2>
