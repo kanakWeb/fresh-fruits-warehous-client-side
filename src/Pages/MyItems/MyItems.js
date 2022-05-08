@@ -33,16 +33,34 @@ const MyItems = () => {
     };
 
     getAddUserItems();
-  }, []);
+  }, [addUserItems]);
 
-  const handleEdit = (id) => {
-    navigate(`/item/${id}`);
-  };
+
+//delete
+
+const handleDelete = (id) => {
+  const deleteItem = window.confirm("Are You sure?");
+
+  if (deleteItem) {
+    const url = `https://whispering-scrubland-68201.herokuapp.com/inventoryItem/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
+};
+
+
+
+
 
   return (
     <div className="margin-top margin-bottom-footer-part">
-      <h2 className="py-5 text-info fs-2 text-uppercase text-center">
-        My Items -{addUserItems.length}
+      <h2 className="py-5 text-info fw-bold fs-2 text-uppercase text-center">
+        My Items - {addUserItems.length}
       </h2>
 
       <div className="row row m-2 g-5">
@@ -79,12 +97,7 @@ const MyItems = () => {
                   >
                     Add New Item
                   </Link>
-                  <button
-                    onClick={() => handleEdit(uerItem?._id)}
-                    className="btn text-light btn-warning m-1 w-50 fw-bold fs-5"
-                  >
-                    Edit Item
-                  </button>
+                  <button onClick={()=>handleDelete(uerItem?._id)} className="btn text-light btn-warning m-1 w-50 fw-bold fs-5">Delete Item</button>
                 </div>
               </Card>
             </CardGroup>

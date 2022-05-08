@@ -14,14 +14,11 @@ const SignUp = () => {
   const [user1] = useAuthState(auth);
   const [name, setName] = useState();
   const [email, SetEmail] = useState();
- 
 
   const navigate = useNavigate();
   const location = useLocation();
 
   let from = location.state?.from?.pathname || "/";
-
- 
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, {
@@ -31,37 +28,33 @@ const SignUp = () => {
   const handleNameSignup = (event) => {
     setName(event.target.value);
   };
-const [token]=useToken(user)
+  const [token] = useToken(user);
   const handleEmailSignup = (event) => {
     SetEmail(event.target.value);
   };
-  
 
   if (loading) {
     return <p>Loading...</p>;
   }
 
-
   const handleSignup = (event) => {
     event.preventDefault();
-    const password=event.target.password.value
+    const password = event.target.password.value;
 
-    if(/.{6}/.test(password)){
-      createUserWithEmailAndPassword(email,password)
-      
-      if (token) {
-       navigate(from, { replace: true });
-     }
-     
-    }
-    else{
-      toast("Minimum 6 number ")
+    if (/.{6}/.test(password)) {
+      createUserWithEmailAndPassword(email, password);
+
+      if (user1) {
+        navigate(from, { replace: true });
+      }
+    } else {
+      toast("Minimum 6 number ");
     }
   };
 
-  if (token){
-    navigate('/')
-  }
+ if (token) {
+  navigate(from, { replace: true });
+  } 
 
   return (
     <div>

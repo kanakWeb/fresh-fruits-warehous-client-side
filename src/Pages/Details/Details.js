@@ -1,9 +1,10 @@
 import React from 'react';
+import '../Reviews/Review.css'
 
 const Details = () => {
     return (
-        <div style={{background:' rgba(207, 211, 214, 0.548)',padding:"10px", margin:"10px", borderRadius:'10px'}} classNameName="container w-100  py-5">
-        <h4 className="py-2 pt-4 text-center fs-2 text-uppercase fw-bold text-info">Customers Details</h4>
+        <div style={{background:'#f1e19fa8',padding:"10px", margin:"60px 10px", borderRadius:'10px'}} classNameName="container  w-100  py-5">
+        <h4 className="py-2 pt-4 text-center fs-2 mt-5 text-uppercase fw-bold text-info">Customers Details</h4>
         <div  className="row  py-5  w-100 g-2 ">
             <div className="col-sm-12 col-md-2 col-lg-3">
                 <div className="card bg-secondary border-info mx-sm-1 p-3">
@@ -56,7 +57,6 @@ const Details = () => {
             
         </div>
     </div>
-
     );
 };
 

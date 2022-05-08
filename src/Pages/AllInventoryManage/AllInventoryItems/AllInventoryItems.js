@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useItems from "../../../hooks/useItems";
+import MyItems from "../../MyItems/MyItems";
 import AllInventoryItem from "../AllInventoryItem/AllInventoryItem";
 
 const AllInventoryItems = () => {

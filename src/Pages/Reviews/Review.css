@@ -104,3 +104,8 @@
     line-height: 22px;
     }
     
+    .margin-up-top{
+        margin-top: 200px;
+        
+        background:rgba(207, 211, 214, 0.548)
+    }
