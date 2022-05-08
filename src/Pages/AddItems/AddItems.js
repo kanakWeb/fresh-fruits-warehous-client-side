@@ -87,7 +87,7 @@ const AddItems = () => {
           <input
             className="my-2 bg-warning btn text-light fw-bold"
             type="submit"
-            value="Add Service"
+            value="Add Item"
           />
           <ToastContainer />
         </form>
