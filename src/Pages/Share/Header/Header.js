@@ -33,8 +33,7 @@ const Header = () => {
               >
                 Home
               </Nav.Link>
-              
-              
+
               <Nav.Link
                 as={CustomLink}
                 className="fw-bold m-1   fs-6 "
@@ -43,39 +42,45 @@ const Header = () => {
                 Blogs
               </Nav.Link>
 
-              {user ? 
+              {user ? (
                 <>
-                <Nav.Link
-                as={CustomLink}
-                className="fw-bold m-1   fs-6 "
-                to="/myItems"
-              >
-                My Items
-              </Nav.Link>
-                <Nav.Link
-                as={CustomLink}
-                className="fw-bold m-1   fs-6 "
-                to="/addItems"
-              >
-                Add Items
-              </Nav.Link>
-                
-                <Nav.Link
-                as={CustomLink}
-                className="fw-bold m-1   fs-6 y "
-                to="AllInventoryItems"
-              >
-                AllInventoryManage
-              </Nav.Link>
-                <Nav.Link
-                onClick={handleSignOut}
-                className="fw-bold m-1 text-dark fs-6 y "
-              >
-                Logout
-              </Nav.Link>
-              
-              </>
-               : 
+                  <Nav.Link
+                    as={CustomLink}
+                    className="fw-bold m-1   fs-6 "
+                    to="/myItems"
+                  >
+                    My Items
+                  </Nav.Link>
+                  <Nav.Link
+                    as={CustomLink}
+                    className="fw-bold m-1   fs-6 "
+                    to="/addItems"
+                  >
+                    Add Items
+                  </Nav.Link>
+
+                  <Nav.Link
+                    as={CustomLink}
+                    className="fw-bold m-1   fs-6 y "
+                    to="AllInventoryItems"
+                  >
+                    AllInventoryManage
+                  </Nav.Link>
+                  <Nav.Link
+                    as={CustomLink}
+                    className="fw-bold m-1   fs-6 y "
+                    to="profile"
+                  >
+                    Profile
+                  </Nav.Link>
+                  <Nav.Link
+                    onClick={handleSignOut}
+                    className="fw-bold m-1 text-dark fs-6 y "
+                  >
+                    Logout
+                  </Nav.Link>
+                </>
+              ) : (
                 <Nav.Link
                   as={CustomLink}
                   className="fw-bold  m-1  fs-6 y "
@@ -83,7 +88,7 @@ const Header = () => {
                 >
                   Login
                 </Nav.Link>
-              }
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

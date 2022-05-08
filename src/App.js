@@ -13,6 +13,7 @@ import AllInventoryItems from "./Pages/AllInventoryManage/AllInventoryItems/AllI
 import SignUp from "./Pages/Login/SignUp/SignUp";
 import AddItems from "./Pages/AddItems/AddItems";
 import MyItems from "./Pages/MyItems/MyItems";
+import Profile from "./Pages/Profile/Profile";
 
 function App() {
   return (
@@ -38,6 +39,12 @@ function App() {
           path="/AllInventoryItems"
           element={<RequireAuth>
             <AllInventoryItems></AllInventoryItems>
+          </RequireAuth>}
+        ></Route>
+        <Route
+          path="/profile"
+          element={<RequireAuth>
+            <Profile></Profile>
           </RequireAuth>}
         ></Route>
         <Route
