@@ -20,7 +20,7 @@ const Header = () => {
         expand="lg"
       >
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <h2 className="text-info fw-bold">Fresh Fruits</h2>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
