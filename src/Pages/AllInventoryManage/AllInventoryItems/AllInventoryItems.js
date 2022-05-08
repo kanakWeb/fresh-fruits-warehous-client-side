@@ -35,8 +35,8 @@ const AllInventoryItems = () => {
             ></AllInventoryItem>
           ))}
         </div>
-        <div className=" py-5 w-50 ms-auto ">
-          <Link to="/addItems" className="btn btn-warning">
+        <div className=" py-5 w-50  ms-auto ">
+          <Link to="/addItems" className="btn text-light fw-bold btn-warning">
             Add New Item
           </Link>
         </div>

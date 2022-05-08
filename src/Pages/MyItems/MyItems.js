@@ -53,7 +53,11 @@ const handleDelete = (id) => {
   }
 };
 
-
+//edit
+const handleEdit=(id)=>{
+   
+  navigate(`/item/${id}`)
+}
 
 
 
@@ -91,12 +95,12 @@ const handleDelete = (id) => {
                 </Card.Body>
 
                 <div className="d-flex justify-content-between ">
-                  <Link
-                    to="/addItems"
+                  <button
+                    onClick={()=>handleEdit(uerItem?._id)}
                     className="btn text-light btn-warning m-1 w-50 fw-bold fs-5"
                   >
-                    Add New Item
-                  </Link>
+                    Edit item
+                  </button>
                   <button onClick={()=>handleDelete(uerItem?._id)} className="btn text-light btn-warning m-1 w-50 fw-bold fs-5">Delete Item</button>
                 </div>
               </Card>
@@ -104,6 +108,11 @@ const handleDelete = (id) => {
           </div>
         ))}
       </div>
+      <div className=" py-5 w-50  ms-auto ">
+          <Link to="/addItems" className="btn text-light fw-bold btn-warning">
+            Add New Item
+          </Link>
+        </div>
     </div>
   );
 };
