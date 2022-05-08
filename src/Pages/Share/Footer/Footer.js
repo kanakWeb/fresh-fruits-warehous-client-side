@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="container-fluid text-center text-md-left">
           <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">
-              <h5 className="text-uppercase">Fresh Fruits inventory</h5>
+              <h5 className="text-uppercase"><span className="text-info fs-3 mx-2">Fresh Fruits</span> inventory</h5>
               <p>
               Get connected with us on social Fresh Fruits ::
               </p>
@@ -35,7 +35,7 @@ const Footer = () => {
         <hr />
         <div className="footer-copyright bg-dark text-center py-2">
           &copy; 2022 Copyright :
-          <Link to='/' className="btn fw-bold text-warning" >Fresh Fruits
+          <Link to='/' className="btn fw-bold text-info fs-5" >Fresh Fruits
           </Link>
         </div>
       </footer>
