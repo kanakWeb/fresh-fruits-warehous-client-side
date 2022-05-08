@@ -154,7 +154,7 @@ const InventoryManage = () => {
           </div>
         </div>
       </div>
-      <div className="ms-auto w-25">
+      <div className="ms-auto w-50">
         <Link to="/AllInventoryItems" className="btn btn-warning">
           All Inventory Manage
         </Link>

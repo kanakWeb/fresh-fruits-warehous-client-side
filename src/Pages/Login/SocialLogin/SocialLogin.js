@@ -3,14 +3,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import useToken from "../../../hooks/useToken";
+import google from "../../../images/google_icon-removebg-preview.png"
 
 
 const SocialLogin = () => {
-  const [user1]=useAuthState(auth)
   const [signInWithGoogle, user, loading, error] =
     useSignInWithGoogle(auth);
- console.log(user1);
-
  const [token]=useToken(user)
     const location = useLocation();
   const navigate = useNavigate();
@@ -48,8 +46,9 @@ const SocialLogin = () => {
       
       <button
         onClick={() => signInWithGoogle()}
-        className="btn py-2 text-info my-3 w-50  btn-light "
+        className="btn py-2 px-0 fw-bold fs-6 mx-0 text-info my-3 w-50  btn-light "
       >
+        <img className="mx-2" width='30px' src={google} alt="" />
         Login  With Google
       </button>
     </div>

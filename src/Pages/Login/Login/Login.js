@@ -16,8 +16,7 @@ import "./Login.css";
 import useToken from "../../../hooks/useToken";
 
 const Login = () => {
-  const [user1] = useAuthState(auth);
-  console.log(user1);
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

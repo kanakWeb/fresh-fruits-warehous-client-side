@@ -10,7 +10,7 @@ const[items]=useItems([])
         margin: "10px",
         borderRadius: "10px",}} className='margin-top margin-bottom '>
            <h2 className='my-5 text-center text-uppercase text-info fw-bold  fs-2'>Inventory</h2> 
-           <div className="row m-2 g-5 py-5">
+           <div className="row m-2 g-5 py-3">
                {
                    items.slice(0,6).map(item=><Item
                    key={item._id}
