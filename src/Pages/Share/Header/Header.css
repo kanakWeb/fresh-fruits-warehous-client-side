@@ -9,7 +9,7 @@ body{
 }
 .nav-bar .nav-underline:hover{
 
-    border-bottom:  3px solid rgb(10, 8, 1);
+    border-bottom: rgb(168, 44, 44) ;
     transition: .5s;
     
 }
